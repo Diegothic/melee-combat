@@ -4,29 +4,67 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class CharacterAnimator : MonoBehaviour
 {
-    private PlayerController _controller;
-    private Animator _animator;
-
     private static readonly int ForwardToMovementAngle = Animator.StringToHash("forwardToMovementAngle");
     private static readonly int SpeedPercent = Animator.StringToHash("speedPercent");
+    private static readonly int IsInCombat = Animator.StringToHash("isInCombat");
 
     private float _forwardToMovementAngle;
-    private float _speedPrecent;
+    private float _speedPercent;
+    
+    private PlayerController _characterController;
+    private IMovement _movement;
+    private Animator _animator;
 
     private void Awake()
     {
-        _controller ??= GetComponent<PlayerController>();
+        _characterController ??= GetComponent<PlayerController>();
         _animator ??= GetComponent<Animator>();
+        _movement ??= GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
-        _forwardToMovementAngle = Mathf.Lerp(_forwardToMovementAngle, _controller.ForwardToMovementAngle(),
-            Time.deltaTime * 5.0f);
-        _animator.SetFloat(ForwardToMovementAngle, _forwardToMovementAngle);
+        SetForwardToMovementAngle();
+        SetSpeedPercent();
+        SetInCombat();
+    }
 
-        _speedPrecent = Mathf.Lerp(_speedPrecent, _controller.SpeedPercent(),
+    private void SetForwardToMovementAngle()
+    {
+        _forwardToMovementAngle = Mathf.LerpAngle(_forwardToMovementAngle,
+            _movement.ForwardToMovementAngle() + 180.0f,
+            0.3f);
+        _animator.SetFloat(ForwardToMovementAngle, WrapAngle(_forwardToMovementAngle - 180.0f));
+    }
+
+    private static float WrapAngle(float angle)
+    {
+        var result = angle;
+        while (!(result >= -180.0f && result <= 180.0f))
+        {
+            if (result > 180.0f)
+            {
+                result -= 360.0f;
+            }
+
+            if (result < -180.0f)
+            {
+                result += 360.0f;
+            }
+        }
+
+        return result;
+    }
+
+    private void SetSpeedPercent()
+    {
+        _speedPercent = Mathf.Lerp(_speedPercent, _movement.SpeedPercent(),
             Time.deltaTime * 10.0f);
-        _animator.SetFloat(SpeedPercent, _speedPrecent);
+        _animator.SetFloat(SpeedPercent, _speedPercent);
+    }
+
+    private void SetInCombat()
+    {
+        _animator.SetBool(IsInCombat, _characterController.IsInCombat());
     }
 }

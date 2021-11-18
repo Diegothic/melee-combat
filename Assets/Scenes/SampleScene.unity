@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -645,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1.5, z: 2}
+  combatOffset: {x: 0.6, y: 1.5, z: 1}
   followSpeed: 1
 --- !u!114 &963194230
 MonoBehaviour:
@@ -661,6 +663,19 @@ MonoBehaviour:
   mouseSensitivity: 5
   pitchLimit: {x: -40, y: 85}
   rotationSmoothTime: 0.01
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003e797dbbb74e86a3b4d1b60b1833d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTime: 0.15
 --- !u!1 &1251794804
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1006,7 @@ GameObject:
   - component: {fileID: 1866226097}
   - component: {fileID: 1866226096}
   - component: {fileID: 1866226098}
+  - component: {fileID: 1866226099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1055,10 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5ed837172b4bd4792d2393e54b13d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7
-  canMove: 1
-  turnSmoothTime: 0.1
-  rotateToCamera: 0
+  state: 0
 --- !u!95 &1866226097
 Animator:
   serializedVersion: 3
@@ -1090,3 +1103,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471382c6bb919a24fa264cfc30048d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1866226099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866226092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb3fd64d85143e89952896d957ae751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 7
+  combatMovementSpeed: 3
+  turnSmoothTime: 0.1
