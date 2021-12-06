@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(Animator))]
 public class CharacterAnimator : MonoBehaviour
 {
     private static readonly int ForwardToMovementAngle = Animator.StringToHash("forwardToMovementAngle");

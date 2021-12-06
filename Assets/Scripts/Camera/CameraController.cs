@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ICameraRotator))]
-[RequireComponent(typeof(CameraTransitionController))]
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Vector3 offset;

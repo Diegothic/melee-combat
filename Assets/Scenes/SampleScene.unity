@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cff1908bab4bc0a69d32868707dbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 5
+  sensitivity: 1
   pitchLimit: {x: -40, y: 85}
   rotationSmoothTime: 0.01
 --- !u!114 &963194231
@@ -1004,8 +1004,8 @@ GameObject:
   - component: {fileID: 1866226095}
   - component: {fileID: 1866226094}
   - component: {fileID: 1866226097}
-  - component: {fileID: 1866226096}
   - component: {fileID: 1866226098}
+  - component: {fileID: 1866226096}
   - component: {fileID: 1866226099}
   m_Layer: 0
   m_Name: Player
@@ -1116,5 +1116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 7
-  combatMovementSpeed: 3
+  inCombatMovementSpeed: 3
+  walkSpeedPercent: 0.3
   turnSmoothTime: 0.1

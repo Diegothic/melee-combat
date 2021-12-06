@@ -29,9 +29,7 @@ public class CameraTransitionController : MonoBehaviour
     public void CheckForTransition()
     {
         if (!ShouldTransition())
-        {
             return;
-        }
 
         StartTransitioning();
     }
