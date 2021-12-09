@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Input/PlayerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Input/GameInputSchema.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerInput : IInputActionCollection, IDisposable
+public class @GameInputSchema : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @PlayerInput()
+    public @GameInputSchema()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""PlayerInput"",
+    ""name"": ""GameInputSchema"",
     ""maps"": [
         {
             ""name"": ""Player"",
@@ -446,8 +446,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Dodge;
     public struct PlayerActions
     {
-        private @PlayerInput m_Wrapper;
-        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        private @GameInputSchema m_Wrapper;
+        public PlayerActions(@GameInputSchema wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @SwitchState => m_Wrapper.m_Player_SwitchState;
         public InputAction @EnableWalk => m_Wrapper.m_Player_EnableWalk;
@@ -522,8 +522,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Camera_Yaw;
     public struct CameraActions
     {
-        private @PlayerInput m_Wrapper;
-        public CameraActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        private @GameInputSchema m_Wrapper;
+        public CameraActions(@GameInputSchema wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pitch => m_Wrapper.m_Camera_Pitch;
         public InputAction @Yaw => m_Wrapper.m_Camera_Yaw;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
