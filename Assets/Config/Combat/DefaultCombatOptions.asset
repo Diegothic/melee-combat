@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869a9f3721f84c5b896448193dfd2035, type: 3}
+  m_Name: DefaultCombatOptions
+  m_EditorClassIdentifier: 
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  parryRange: 1.5
+  lightStarter: {fileID: 11400000, guid: 61f26075ae749ec469b0917ce8ce1781, type: 2}
+  heavyStarter: {fileID: 11400000, guid: a7d2ca40350c01c40a5e3e45e61d992c, type: 2}
+  rememberActionPressTime: 0.5
+  lightAttackCost: 15
+  heavyAttackCost: 25
+  dodgeCost: 10
+  blockCost: 5
+  chipDamageMultiplier: 0.1

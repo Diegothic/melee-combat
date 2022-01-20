@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c5a7d1b09942d0bb1da19cc8dac6e5, type: 3}
+  m_Name: SwordsHit
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 1e46ef4fc793f08489e492b56f09d8a2, type: 3}
+  - {fileID: 8300000, guid: 8673e28645f13bc4aa1b0ab4c1682e24, type: 3}
+  - {fileID: 8300000, guid: 2ce86ffef1c00fc418030ca700aaa423, type: 3}
+  minVolume: 0.9
+  maxVolume: 1.05
+  minPitch: 0.9
+  maxPitch: 1.1

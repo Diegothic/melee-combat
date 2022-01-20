@@ -178,7 +178,7 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b89dbc4-7862-486a-9075-b5a8f6889729"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -189,7 +189,7 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5822f817-2e3b-4818-9fd4-e47031d2bfa3"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -198,42 +198,20 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""HeavyAttack"",
-                    ""id"": ""7f1bcccf-d5c7-4350-a0e1-2d1f4694dd00"",
-                    ""path"": ""ButtonWithOneModifier"",
+                    ""name"": """",
+                    ""id"": ""b3308645-e098-4dc5-adf0-71b846094d44"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard and mouse"",
                     ""action"": ""HeavyAttack"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""78575f5d-f571-4565-93ca-3f5eb4338bad"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""HeavyAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""button"",
-                    ""id"": ""3f4722d2-aa24-428c-9b3e-04f9d64ae1af"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""HeavyAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
                     ""id"": ""319c15e6-b129-4274-b23f-3fa55229388a"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -244,7 +222,7 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bb03a17c-358f-4548-9acb-1961b2c3e69a"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
@@ -343,6 +321,74 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""05d04b34-d8c2-4b53-a002-9e005ae634a3"",
+            ""actions"": [
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec29ec81-4a85-4d38-9014-fe5c4d47abf6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""d148fcaa-3689-4510-ae3f-e18667faef64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6d5ff67a-31c4-4bf4-84c4-7578b308c563"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a587656-4ea8-4764-9ec8-056cb45ea869"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9c3c3e8-d508-41dd-aaa7-4d1eb5a7a327"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87348d27-dffb-4a3c-89a1-7ca6efa02f99"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -388,6 +434,10 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Pitch = m_Camera.FindAction("Pitch", throwIfNotFound: true);
         m_Camera_Yaw = m_Camera.FindAction("Yaw", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Exit = m_Menu.FindAction("Exit", throwIfNotFound: true);
+        m_Menu_Reset = m_Menu.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -555,6 +605,47 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Exit;
+    private readonly InputAction m_Menu_Reset;
+    public struct MenuActions
+    {
+        private @GameInputSchema m_Wrapper;
+        public MenuActions(@GameInputSchema wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Exit => m_Wrapper.m_Menu_Exit;
+        public InputAction @Reset => m_Wrapper.m_Menu_Reset;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Exit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnExit;
+                @Reset.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_KeyboardandmouseSchemeIndex = -1;
     public InputControlScheme KeyboardandmouseScheme
     {
@@ -587,5 +678,10 @@ public class @GameInputSchema : IInputActionCollection, IDisposable
     {
         void OnPitch(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnExit(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

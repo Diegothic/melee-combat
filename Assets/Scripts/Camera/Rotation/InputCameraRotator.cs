@@ -3,21 +3,22 @@ using UnityEngine.InputSystem;
 
 namespace Camera.Rotation
 {
-    internal class InputCameraRotator : MonoBehaviour, ICameraRotator
+    internal class InputCameraRotator : MonoBehaviour
     {
         private GameInputSchema _input;
         private InputAction _pitch;
         private InputAction _yaw;
 
-        [SerializeField] private float sensitivity;
+        [SerializeField]
+        private float sensitivity;
 
-        [SerializeField] private Vector2 pitchLimit;
+        [SerializeField]
+        private Vector2 pitchLimit;
 
-        [SerializeField] private float rotationSmoothTime;
+        [SerializeField]
+        private float rotationSmoothTime;
         private Vector3 _rotationSmoothVelocity;
         private Vector3 _currentRotation;
-        private float _currentPitch;
-        private float _currentYaw;
 
         private void Awake()
         {
@@ -38,13 +39,18 @@ namespace Camera.Rotation
             _yaw.Disable();
         }
 
+        public void SetCurrentRotation(Quaternion rotation)
+        {
+            _currentRotation = rotation.eulerAngles;
+        }
+
         public Vector3 Rotation()
         {
-            _currentYaw += _yaw.ReadValue<float>() * sensitivity;
-            _currentPitch -= _pitch.ReadValue<float>() * sensitivity;
-            _currentPitch = Mathf.Clamp(_currentPitch, pitchLimit.x, pitchLimit.y);
+            var yawDiff = _yaw.ReadValue<float>() * sensitivity * Time.deltaTime * 50.0f;
+            var pitchDiff = _pitch.ReadValue<float>() * sensitivity * Time.deltaTime * 50.0f;
 
-            var targetRotation = new Vector3(_currentPitch, _currentYaw);
+            var targetRotation = new Vector3(_currentRotation.x - pitchDiff, _currentRotation.y + yawDiff);
+            targetRotation.x = Mathf.Clamp(targetRotation.x, pitchLimit.x, pitchLimit.y);
             _currentRotation =
                 Vector3.SmoothDamp(_currentRotation, targetRotation, ref _rotationSmoothVelocity, rotationSmoothTime);
             return _currentRotation;

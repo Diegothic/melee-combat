@@ -1,22 +1,23 @@
 ﻿using System.Collections;
-using Character.Controller;
+using Character;
 using UnityEngine;
 
 namespace Camera.Transition
 {
     public class CameraTransitionController : MonoBehaviour
     {
-        [SerializeField] private float transitionTime;
-        private bool _playerWasInCombat;
+        [SerializeField]
+        private float transitionTime;
+        private bool _playerHadTarget;
         private Coroutine _transitionRoutine;
         private bool _isTransitioning;
         private Vector3 _desiredPosition;
 
-        private ICharacterController _characterController;
+        private Targeting _targeting;
 
         private void Awake()
         {
-            _characterController ??= GameObject.FindGameObjectWithTag("Player").GetComponent<ICharacterController>();
+            _targeting ??= GameObject.FindGameObjectWithTag("Player").GetComponent<Targeting>();
         }
 
         public bool IsTransitioning()
@@ -39,9 +40,9 @@ namespace Camera.Transition
 
         private bool ShouldTransition()
         {
-            var playerInCombat = _characterController.IsInCombat();
-            var shouldTransition = _playerWasInCombat != _characterController.IsInCombat();
-            _playerWasInCombat = playerInCombat;
+            var playerHasTarget = _targeting.HasTarget();
+            var shouldTransition = _playerHadTarget != playerHasTarget;
+            _playerHadTarget = playerHasTarget;
             return shouldTransition;
         }
 
