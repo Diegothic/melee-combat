@@ -11,7 +11,9 @@ namespace Character.Combat
     {
         public event Action<bool> OnInAttackChanged = delegate { };
         public event Action<bool> OnUnblockableChanged = delegate { };
+
         public event Action OnAttack = delegate { };
+        public event Action OnOutOfStamina = delegate { };
 
         private static readonly int AInAction = Animator.StringToHash("isInAction");
         private static readonly int AIsHeavyReady = Animator.StringToHash("isHeavyReady");
@@ -190,6 +192,17 @@ namespace Character.Combat
             _animator.applyRootMotion = true;
         }
 
+        private bool HasEnoughStamina(float requiredStamina)
+        {
+            if (_attributes.Stamina < requiredStamina)
+            {
+                OnOutOfStamina();
+                return false;
+            }
+
+            return true;
+        }
+
         #region Attack
 
         public void OnAttackStart()
@@ -279,7 +292,7 @@ namespace Character.Combat
             if (IsInAction && !IsInCombo) return;
             ForgetActionPress();
 
-            if (_attributes.Stamina < combatOptions.lightAttackCost)
+            if (!HasEnoughStamina(combatOptions.lightAttackCost))
                 return;
             _attributes.DecreaseStamina(combatOptions.lightAttackCost);
 
@@ -323,7 +336,7 @@ namespace Character.Combat
             if (IsInAction && !IsInCombo) return;
             ForgetActionPress();
 
-            if (_attributes.Stamina < combatOptions.heavyAttackCost)
+            if (!HasEnoughStamina(combatOptions.heavyAttackCost))
                 return;
             _attributes.DecreaseStamina(combatOptions.heavyAttackCost);
 
@@ -447,7 +460,7 @@ namespace Character.Combat
             if (IsInAction) return;
             ForgetActionPress();
 
-            if (_attributes.Stamina < combatOptions.dodgeCost)
+            if (!HasEnoughStamina(combatOptions.dodgeCost))
                 return;
             _attributes.DecreaseStamina(combatOptions.dodgeCost);
 
@@ -492,7 +505,7 @@ namespace Character.Combat
             if (!_requestBlocking)
                 return;
 
-            if (_attributes.Stamina < combatOptions.blockCost)
+            if (!HasEnoughStamina(combatOptions.blockCost))
                 return;
             _attributes.DecreaseStamina(combatOptions.blockCost);
 

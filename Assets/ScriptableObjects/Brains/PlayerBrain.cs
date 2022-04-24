@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ScriptableObjects.Brains
@@ -6,6 +7,8 @@ namespace ScriptableObjects.Brains
     [CreateAssetMenu(menuName = "Brains/Player")]
     public class PlayerBrain : HumanoidBrain
     {
+        public static event Action<string> OnInputDeviceChanged = delegate { };
+
         private GameInputSchema _input;
         private InputAction _movementAxis;
 
@@ -25,6 +28,7 @@ namespace ScriptableObjects.Brains
             _input = new GameInputSchema();
 
             _movementAxis = _input.Player.Movement;
+            _movementAxis.started += OnMovement;
             _movementAxis.Enable();
 
             _input.Player.EnableWalk.performed += EnableWalk;
@@ -62,43 +66,56 @@ namespace ScriptableObjects.Brains
             Controller.Move(InputAxis());
         }
 
+        private static void OnMovement(InputAction.CallbackContext ctx)
+        {
+            OnInputDeviceChanged(ctx.control.device.displayName);
+        }
+
         private void EnableWalk(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.EnableWalk();
         }
 
         private void DisableWalk(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.DisableWalk();
         }
 
         private void OnLightAttack(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.LightAttack();
         }
 
         private void OnHeavyAttackPress(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.ChargeHeavyAttack();
         }
 
         private void OnHeavyAttackRelease(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.HeavyAttack();
         }
 
         private void OnBlockPress(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.Block();
         }
 
         private void OnBlockRelease(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             Controller.StopBlocking();
         }
 
         private void OnDodge(InputAction.CallbackContext ctx)
         {
+            OnInputDeviceChanged(ctx.control.device.displayName);
             var dodgeAngle = -180.0f;
             if (InputAxis().magnitude > 0.0f)
                 dodgeAngle = AngleToInput();

@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Camera.Rotation
 {
     internal class InputCameraRotator : MonoBehaviour
     {
+        public static event Action<string> OnInputDeviceChanged = delegate { };
+
         private GameInputSchema _input;
         private InputAction _pitch;
         private InputAction _yaw;
@@ -28,8 +31,10 @@ namespace Camera.Rotation
         private void OnEnable()
         {
             _pitch = _input.Camera.Pitch;
+            _pitch.started += OnInput;
             _pitch.Enable();
             _yaw = _input.Camera.Yaw;
+            _yaw.started += OnInput;
             _yaw.Enable();
         }
 
@@ -37,6 +42,11 @@ namespace Camera.Rotation
         {
             _pitch.Disable();
             _yaw.Disable();
+        }
+
+        private static void OnInput(InputAction.CallbackContext ctx)
+        {
+            OnInputDeviceChanged(ctx.control.device.displayName);
         }
 
         public void SetCurrentRotation(Quaternion rotation)
