@@ -153,7 +153,7 @@ namespace Character.Combat
             ResetState(true, true);
         }
 
-        public void ResetState(bool resetAttack, bool resetBlock)
+        private void ResetState(bool resetAttack, bool resetBlock)
         {
             _isRotatingToTarget = false;
             _useLookDirection = false;
@@ -194,13 +194,13 @@ namespace Character.Combat
 
         private bool HasEnoughStamina(float requiredStamina)
         {
-            if (_attributes.Stamina < requiredStamina)
+            if (_attributes.Stamina >= requiredStamina)
             {
-                OnOutOfStamina();
-                return false;
+                return true;
             }
 
-            return true;
+            OnOutOfStamina();
+            return false;
         }
 
         #region Attack

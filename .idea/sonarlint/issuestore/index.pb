@@ -21,8 +21,6 @@ f
 6Assets/ScriptableObjects/Actions/Attacks/AttackType.cs,8\0\8082e78c69a565af7681a7908f7d5c90bc7cde93
 e
 5Assets/ScriptableObjects/Attributes/BaseAttributes.cs,b\8\b853889510a460031af24636df9fbe7eb672e19c
-g
-7Assets/Scripts/Character/Animations/MovementAnimator.cs,e\f\ef2f6c3ca7a0fa9819768a3a01c3131226e59d46
 Z
 *Assets/ScriptableObjects/Brains/AIBrain.cs,a\b\ab119ef6c9fa80310f6573b2834b55b4d290495f
 g
@@ -37,3 +35,21 @@ T
 $Assets/Scripts/Character/Movement.cs,8\0\80a971b52e1c5756e89fc689ccd2fab3377b96ac
 V
 &Assets/Scripts/Character/TargetInfo.cs,6\0\60430d720855c6ab6b19a4975c6dce943d6f4fae
+U
+%Assets/Scripts/Character/Targeting.cs,d\d\dd505839fc0d287005216e0e88ae3690d7e57b85
+Q
+!Assets/Scripts/UI/LookAtCamera.cs,7\b\7bab8d78c1f4dfebbd9f5cd9e06141431379912e
+[
++Assets/Scripts/Util/RootMotionStabilizer.cs,e\c\ecf52135271d1ae4d818f930d9d073dfda9dd756
+R
+"Assets/Scripts/Util/Vector3Util.cs,d\6\d6636fd9c09971f832ab61940eaf102354b6fd85
+n
+>Assets/Scripts/Camera/Transition/CameraTransitionController.cs,1\d\1d83af454238846b39e9f80d9c6b14880bca0796
+O
+Assets/Scripts/VFX/CombatVFX.cs,d\0\d035bb2b696d3df9fb026aa5f3eb838f761bd2ea
+Y
+)Assets/Scripts/UI/AttributesStatusBars.cs,f\a\fab8f9c595a25fb0f47f53b9bdd30c226146522c
+_
+/Assets/Scripts/Character/Audio/HumanoidAudio.cs,8\0\80c74452551eb47fa38ff3d4aeea2b4f4921b0c8
+W
+'Assets/Scripts/Input/GameInputSchema.cs,3\9\3907ff0a46ae60e5dc932e197bbf2396b14ecee8

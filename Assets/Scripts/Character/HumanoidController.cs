@@ -81,6 +81,7 @@ namespace Character
         {
             IsAlive = false;
             _targeting.Disable();
+            _combat.enabled = false;
 
             _audio.AudioOnDeath();
             _rigidbody.isKinematic = true;
