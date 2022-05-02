@@ -27,7 +27,7 @@ namespace Menu
 
         private static void Reset(InputAction.CallbackContext ctx)
         {
-            var activeScene = SceneManager.GetActiveScene().buildIndex;
+            var activeScene = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(0);
             SceneManager.LoadScene(activeScene);
         }

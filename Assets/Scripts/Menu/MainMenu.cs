@@ -1,5 +1,5 @@
+using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -10,6 +10,9 @@ namespace Menu
         [SerializeField]
         private string cvcSceneName;
 
+        [SerializeField]
+        private SceneTransition sceneTransition;
+
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.None;
@@ -18,12 +21,22 @@ namespace Menu
 
         public void StartPVC()
         {
-            SceneManager.LoadScene(pvcSceneName);
+            if (sceneTransition == null)
+            {
+                return;
+            }
+
+            sceneTransition.FadeToScene(pvcSceneName, false);
         }
 
         public void StartCVC()
         {
-            SceneManager.LoadScene(cvcSceneName);
+            if (sceneTransition == null)
+            {
+                return;
+            }
+
+            sceneTransition.FadeToScene(cvcSceneName, false);
         }
 
         public void Exit()

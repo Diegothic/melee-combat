@@ -27,6 +27,11 @@ namespace ScriptableObjects.Brains
 
         public override void Think()
         {
+            if (!Controller.IsAlive)
+            {
+                return;
+            }
+
             _selfInfo ??= Controller.Info;
             if (Targeting.HasTarget())
             {

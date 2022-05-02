@@ -1,4 +1,5 @@
-﻿using Character.Animations;
+﻿using System;
+using Character.Animations;
 using Character.Audio;
 using Character.Combat;
 using Character.State;
@@ -9,6 +10,8 @@ namespace Character
 {
     public class HumanoidController : MonoBehaviour
     {
+        public static event Action OnCharacterDeath = delegate { };
+
         public bool IsAlive { get; private set; }
 
         [SerializeField]
@@ -88,6 +91,7 @@ namespace Character
             _animator.applyRootMotion = true;
             _animator.Play("Death");
             GetComponent<CapsuleCollider>().enabled = false;
+            OnCharacterDeath();
         }
 
         private void UpdateInfo()
